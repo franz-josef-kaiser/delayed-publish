@@ -1,0 +1,36 @@
+{
+	"name"              : "wcm/delayed-publish",
+	"description"       : "Delay displaying the meta box for the first week after a user registered",
+	"keywords"          : [
+		"wordpress",
+		"metabox",
+		"publish"
+	],
+	"type"              : "wordpress-muplugin",
+	"license"           : "MIT",
+	"authors"           : [
+		{
+			"name"     : "Kaiser Franz Josef",
+			"email"    : "wecodemore@gmail.com",
+			"homepage" : "http://unserkaiser.com",
+			"role"     : "Developer"
+		}
+	],
+	"support"           : {
+		"source" : "https://github.com/wecodemore/delayed-publish",
+		"issues" : "https://github.com/franz-josef-kaiser/delayed-publish/issues"
+	},
+	"minimum-stability" : "stable",
+	"prefer-stable"     : true,
+	"config"            : {
+		"optimize-autoloader" : true
+	},
+	"require"           : {
+		"php" : ">=5.3.2"
+	},
+	"extra"             : {
+		"branch-alias" : {
+			"dev-master" : "1.x-dev"
+		}
+	}
+}
