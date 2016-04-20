@@ -24,6 +24,19 @@ filter to add your custom message above the editor and MetaBoxes on a post scree
 
 Best served as `mu-plugin`.
 
-## License
+---
 
-MIT
+## License: MIT / [TL;DR](https://tldrlegal.com/license/mit-license)
+
+See attached license for full text.
+
+**Can:** You may use the work commercially.
+You may make changes to the work.
+You may distribute the compiled code and/or source.
+You may incorporate the work into something that has a more restrictive license.
+You may use the work for private use.
+
+**Cannot:** The work is provided "as is". You may not hold the author liable.
+
+**Must:** You must include the copyright notice in all copies or substantial uses of the work.
+You must include the license notice in all copies or substantial uses of the work.
