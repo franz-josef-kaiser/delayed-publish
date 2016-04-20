@@ -1,26 +1,20 @@
 <?php
-
-namespace WCM\WPAdmin;
-
 /**
- * Plugin Name: Delay post publishing
+ * Plugin Name: (WCM) Delay post publishing
  * Plugin URI:  http://unserkaiser.com
  * Description: Only allows publishing a post if the user registered one week ago.
- * Version:     1.0
+ * Version:     1.1.0
  * Author:      Franz Josef Kaiser
  * Author URI:  http://unserkaiser.com
  * License:     MIT
  */
 
 // Only run this for new "post"-post_type admin UI screens
-if (
-	! is_admin()
-	AND 'post-new.php' !== $GLOBALS['typenow']
+(
+	is_admin()
+	AND 'post-new.php' === $GLOBALS['typenow']
 )
-	return;
-
-add_action( 'add_meta_boxes', __NAMESPACE__.'\\removePublishMetaBox', 20 );
-function removePublishMetaBox()
+	&& add_action( 'add_meta_boxes', function()
 {
 	// Retrieve the current users' data as object
 	$curr_user = get_user_by( 'id', get_current_user_id() );
@@ -34,8 +28,8 @@ function removePublishMetaBox()
 	$diff       = human_time_diff( $reg_date, $curr_date );
 	$diff_array = explode( ' ', $diff );
 
-	// Remove if we're on the 1st day (diff result is mins/hours)
-	// This removes the MetaBox
+	// Finally remove the MetaBox:
+	// Remove if we're on the 1st day (diff result is min/hour)
 	if (
 		strstr( $diff_array[1], 'mins' )
 		OR strstr( $diff_array[1], 'hours' )
@@ -43,7 +37,6 @@ function removePublishMetaBox()
 		remove_meta_box( 'submitdiv', null, 'side' );
 
 	// Remove if we're below or equal to 7 days (1 week)
-	// This removes the MetaBox
 	if ( 7 >= $diff_array[0] )
 		remove_meta_box( 'submitdiv', null, 'side' );
-}
+}, 20 );
