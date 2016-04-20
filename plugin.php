@@ -37,6 +37,6 @@
 		remove_meta_box( 'submitdiv', null, 'side' );
 
 	// Remove if we're below or equal to 7 days (1 week)
-	if ( 7 >= $diff_array[0] )
+	if ( apply_filters( 'wcm.delayedpublish.days', 7 ) >= $diff_array[0] )
 		remove_meta_box( 'submitdiv', null, 'side' );
 }, 20 );
